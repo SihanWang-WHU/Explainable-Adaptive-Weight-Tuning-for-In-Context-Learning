@@ -1,11 +1,9 @@
 import logging
 import warnings
-import time
-import random
+from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import torch
-from tqdm import tqdm
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from transformers import BertTokenizer, BertForSequenceClassification, AdamW, get_linear_schedule_with_warmup
 
@@ -98,28 +96,28 @@ def accuracy(y_pred, y_test):
     return acc
 
 
-# Training Loop
 def train_model(model, train_dataloader, dev_dataloader, epochs, learning_rate):
     optimizer = AdamW(model.parameters(), lr=learning_rate, correct_bias=False)
     total_steps = len(train_dataloader) * epochs
-    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
+    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=100, num_training_steps=total_steps)
+
+    best_val_loss = float('inf')
+    no_improve_epochs = 0
+    early_stopping_threshold = 3  # Number of epochs to continue without improvement in validation loss
 
     for epoch in range(epochs):
-        # Training
         model.train()
         total_train_loss, total_train_acc = 0, 0
-        start = time.time()
-        print(f"Epoch {epoch + 1}/{epochs} - Training Phase")
+        for batch in tqdm(train_dataloader):
+            batch = tuple(t.to(device) for t in batch)
+            input_ids, attention_masks, labels = batch
 
-        for step, batch in enumerate(train_dataloader):
-            input_ids = batch[0].to(device)
-            attention_masks = batch[1].to(device)
-            labels = batch[2].to(device)
+            model.zero_grad()
+            outputs = model(input_ids, token_type_ids=None, attention_mask=attention_masks, labels=labels)
+            loss = outputs[0]
+            logits = outputs[1]
 
-            optimizer.zero_grad()
-            loss, prediction = model(input_ids, token_type_ids=None, attention_mask=attention_masks,
-                                     labels=labels).values()
-            acc = accuracy(prediction, labels)
+            acc = accuracy(logits, labels)
             total_train_loss += loss.item()
             total_train_acc += acc.item()
 
@@ -128,43 +126,56 @@ def train_model(model, train_dataloader, dev_dataloader, epochs, learning_rate):
             optimizer.step()
             scheduler.step()
 
-        train_acc = total_train_acc / len(train_dataloader)
-        train_loss = total_train_loss / len(train_dataloader)
-        end = time.time()
-        hours, rem = divmod(end - start, 3600)
-        minutes, seconds = divmod(rem, 60)
+        avg_train_loss = total_train_loss / len(train_dataloader)
+        avg_train_acc = total_train_acc / len(train_dataloader)
 
-        print(f"Epoch {epoch + 1}: train_loss: {train_loss:.4f} train_acc: {train_acc:.4f}")
-        print("Training Time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
-
-        # Evaluation
+        # Evaluation phase
         model.eval()
         total_val_loss, total_val_acc = 0, 0
-        print(f"Epoch {epoch + 1}/{epochs} - Evaluation Phase")
+        for batch in dev_dataloader:
+            batch = tuple(t.to(device) for t in batch)
+            input_ids, attention_masks, labels = batch
 
-        with torch.no_grad():
-            for batch in dev_dataloader:
-                input_ids = batch[0].to(device)
-                attention_masks = batch[1].to(device)
-                labels = batch[2].to(device)
+            with torch.no_grad():
+                outputs = model(input_ids, token_type_ids=None, attention_mask=attention_masks, labels=labels)
+                loss = outputs[0]
+                logits = outputs[1]
 
-                loss, prediction = model(input_ids, token_type_ids=None, attention_mask=attention_masks,
-                                         labels=labels).values()
-                acc = accuracy(prediction, labels)
-                total_val_loss += loss.item()
-                total_val_acc += acc.item()
+            acc = accuracy(logits, labels)
+            total_val_loss += loss.item()
+            total_val_acc += acc.item()
 
-        val_acc = total_val_acc / len(dev_dataloader)
-        val_loss = total_val_loss / len(dev_dataloader)
-        print(f"Epoch {epoch + 1}: val_loss: {val_loss:.4f} val_acc: {val_acc:.4f}")
+        avg_val_loss = total_val_loss / len(dev_dataloader)
+        avg_val_acc = total_val_acc / len(dev_dataloader)
+
+        print(f"Epoch {epoch + 1}/{epochs} | Train Loss: {avg_train_loss:.4f}, Train Acc: {avg_train_acc:.4f} | Val Loss: {avg_val_loss:.4f}, Val Acc: {avg_val_acc:.4f}")
+
+        if avg_val_loss < best_val_loss:
+            best_val_loss = avg_val_loss
+            no_improve_epochs = 0
+            torch.save(model.state_dict(), 'model_best.pt')  # Save the best model
+        else:
+            no_improve_epochs += 1
+            if no_improve_epochs >= early_stopping_threshold:
+                print("Early stopping triggered.")
+                break
+
+
+def save_model_full(model, optimizer, epoch, file_path):
+    state = {
+        'epoch': epoch,
+        'model_state': model.state_dict(),
+        'optimizer_state': optimizer.state_dict(),
+    }
+    torch.save(state, file_path)
 
 
 # Main Function
 def main():
     max_seq_length = 256
-    batch_size = 32
-    learning_rate = 3e-5
-    epochs = 4
+    batch_size = 16
+    learning_rate = 2e-5
+    epochs = 5
 
     print("Preparing data...")
     train_features, dev_features = prepare_data(tokenizer, max_seq_length)
