@@ -1,0 +1,354 @@
+"armageddon/bert-base-uncased-squad2-covid-qa-deepset"
+/usr/bin/python3 /root/workdir/squad.py
+Loading dataset...
+Creating DataLoaders...
+Initializing model...
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Starting training...
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+BertForQuestionAnswering(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(30522, 768, padding_idx=0)
+      (position_embeddings): Embedding(512, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x BertLayer(
+          (attention): BertAttention(
+            (self): BertSdpaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (qa_outputs): Linear(in_features=768, out_features=2, bias=True)
+)
+Some weights of BertModel were not initialized from the model checkpoint at armageddon/bert-base-uncased-squad2-covid-qa-deepset and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Layer-Head Absolute Differences (Averaged):
+bert.embeddings.word_embeddings.weight: 0.665
+bert.embeddings.position_embeddings.weight: 0.759
+bert.embeddings.token_type_embeddings.weight: 0.588
+bert.embeddings.LayerNorm.weight: 0.946
+bert.embeddings.LayerNorm.bias: 0.565
+bert.encoder.layer.0.head.0: 1.435
+bert.encoder.layer.0.head.1: 1.677
+bert.encoder.layer.0.head.2: 1.557
+bert.encoder.layer.0.head.3: 1.601
+bert.encoder.layer.0.head.4: 1.551
+bert.encoder.layer.0.head.5: 1.529
+bert.encoder.layer.0.head.6: 1.494
+bert.encoder.layer.0.head.7: 1.535
+bert.encoder.layer.0.head.8: 1.604
+bert.encoder.layer.0.head.9: 1.443
+bert.encoder.layer.0.head.10: 1.574
+bert.encoder.layer.0.head.11: 1.676
+bert.encoder.layer.0.attention.output.dense.weight: 0.307
+bert.encoder.layer.0.attention.output.dense.bias: 0.136
+bert.encoder.layer.0.attention.output.LayerNorm.weight: 0.321
+bert.encoder.layer.0.attention.output.LayerNorm.bias: 0.132
+bert.encoder.layer.0.intermediate.dense.weight: 0.333
+bert.encoder.layer.0.intermediate.dense.bias: 0.269
+bert.encoder.layer.0.output.dense.weight: 0.320
+bert.encoder.layer.0.output.dense.bias: 0.142
+bert.encoder.layer.0.output.LayerNorm.weight: 0.314
+bert.encoder.layer.0.output.LayerNorm.bias: 0.163
+bert.encoder.layer.1.head.0: 1.537
+bert.encoder.layer.1.head.1: 1.472
+bert.encoder.layer.1.head.2: 1.461
+bert.encoder.layer.1.head.3: 1.476
+bert.encoder.layer.1.head.4: 1.589
+bert.encoder.layer.1.head.5: 1.437
+bert.encoder.layer.1.head.6: 1.632
+bert.encoder.layer.1.head.7: 1.593
+bert.encoder.layer.1.head.8: 1.375
+bert.encoder.layer.1.head.9: 1.618
+bert.encoder.layer.1.head.10: 1.535
+bert.encoder.layer.1.head.11: 2.359
+bert.encoder.layer.1.attention.output.dense.weight: 0.303
+bert.encoder.layer.1.attention.output.dense.bias: 0.149
+bert.encoder.layer.1.attention.output.LayerNorm.weight: 0.328
+bert.encoder.layer.1.attention.output.LayerNorm.bias: 0.139
+bert.encoder.layer.1.intermediate.dense.weight: 0.332
+bert.encoder.layer.1.intermediate.dense.bias: 0.252
+bert.encoder.layer.1.output.dense.weight: 0.315
+bert.encoder.layer.1.output.dense.bias: 0.124
+bert.encoder.layer.1.output.LayerNorm.weight: 0.323
+bert.encoder.layer.1.output.LayerNorm.bias: 0.123
+bert.encoder.layer.2.head.0: 1.430
+bert.encoder.layer.2.head.1: 1.505
+bert.encoder.layer.2.head.2: 1.502
+bert.encoder.layer.2.head.3: 1.449
+bert.encoder.layer.2.head.4: 1.409
+bert.encoder.layer.2.head.5: 1.406
+bert.encoder.layer.2.head.6: 1.967
+bert.encoder.layer.2.head.7: 1.460
+bert.encoder.layer.2.head.8: 1.366
+bert.encoder.layer.2.head.9: 1.475
+bert.encoder.layer.2.head.10: 1.579
+bert.encoder.layer.2.head.11: 1.511
+bert.encoder.layer.2.attention.output.dense.weight: 0.304
+bert.encoder.layer.2.attention.output.dense.bias: 0.136
+bert.encoder.layer.2.attention.output.LayerNorm.weight: 0.310
+bert.encoder.layer.2.attention.output.LayerNorm.bias: 0.132
+bert.encoder.layer.2.intermediate.dense.weight: 0.329
+bert.encoder.layer.2.intermediate.dense.bias: 0.247
+bert.encoder.layer.2.output.dense.weight: 0.314
+bert.encoder.layer.2.output.dense.bias: 0.131
+bert.encoder.layer.2.output.LayerNorm.weight: 0.304
+bert.encoder.layer.2.output.LayerNorm.bias: 0.136
+bert.encoder.layer.3.head.0: 1.597
+bert.encoder.layer.3.head.1: 1.790
+bert.encoder.layer.3.head.2: 1.404
+bert.encoder.layer.3.head.3: 1.481
+bert.encoder.layer.3.head.4: 1.496
+bert.encoder.layer.3.head.5: 1.506
+bert.encoder.layer.3.head.6: 1.409
+bert.encoder.layer.3.head.7: 1.509
+bert.encoder.layer.3.head.8: 1.707
+bert.encoder.layer.3.head.9: 1.732
+bert.encoder.layer.3.head.10: 1.491
+bert.encoder.layer.3.head.11: 1.432
+bert.encoder.layer.3.attention.output.dense.weight: 0.310
+bert.encoder.layer.3.attention.output.dense.bias: 0.136
+bert.encoder.layer.3.attention.output.LayerNorm.weight: 0.299
+bert.encoder.layer.3.attention.output.LayerNorm.bias: 0.136
+bert.encoder.layer.3.intermediate.dense.weight: 0.331
+bert.encoder.layer.3.intermediate.dense.bias: 0.261
+bert.encoder.layer.3.output.dense.weight: 0.314
+bert.encoder.layer.3.output.dense.bias: 0.119
+bert.encoder.layer.3.output.LayerNorm.weight: 0.300
+bert.encoder.layer.3.output.LayerNorm.bias: 0.139
+bert.encoder.layer.4.head.0: 1.580
+bert.encoder.layer.4.head.1: 1.516
+bert.encoder.layer.4.head.2: 1.515
+bert.encoder.layer.4.head.3: 1.782
+bert.encoder.layer.4.head.4: 1.568
+bert.encoder.layer.4.head.5: 1.432
+bert.encoder.layer.4.head.6: 1.578
+bert.encoder.layer.4.head.7: 1.512
+bert.encoder.layer.4.head.8: 1.380
+bert.encoder.layer.4.head.9: 1.557
+bert.encoder.layer.4.head.10: 1.343
+bert.encoder.layer.4.head.11: 1.624
+bert.encoder.layer.4.attention.output.dense.weight: 0.319
+bert.encoder.layer.4.attention.output.dense.bias: 0.143
+bert.encoder.layer.4.attention.output.LayerNorm.weight: 0.300
+bert.encoder.layer.4.attention.output.LayerNorm.bias: 0.146
+bert.encoder.layer.4.intermediate.dense.weight: 0.331
+bert.encoder.layer.4.intermediate.dense.bias: 0.257
+bert.encoder.layer.4.output.dense.weight: 0.308
+bert.encoder.layer.4.output.dense.bias: 0.110
+bert.encoder.layer.4.output.LayerNorm.weight: 0.279
+bert.encoder.layer.4.output.LayerNorm.bias: 0.110
+bert.encoder.layer.5.head.0: 1.378
+bert.encoder.layer.5.head.1: 1.418
+bert.encoder.layer.5.head.2: 1.491
+bert.encoder.layer.5.head.3: 1.344
+bert.encoder.layer.5.head.4: 1.443
+bert.encoder.layer.5.head.5: 1.482
+bert.encoder.layer.5.head.6: 1.459
+bert.encoder.layer.5.head.7: 1.417
+bert.encoder.layer.5.head.8: 1.365
+bert.encoder.layer.5.head.9: 1.450
+bert.encoder.layer.5.head.10: 1.456
+bert.encoder.layer.5.head.11: 1.401
+bert.encoder.layer.5.attention.output.dense.weight: 0.326
+bert.encoder.layer.5.attention.output.dense.bias: 0.142
+bert.encoder.layer.5.attention.output.LayerNorm.weight: 0.305
+bert.encoder.layer.5.attention.output.LayerNorm.bias: 0.139
+bert.encoder.layer.5.intermediate.dense.weight: 0.331
+bert.encoder.layer.5.intermediate.dense.bias: 0.252
+bert.encoder.layer.5.output.dense.weight: 0.312
+bert.encoder.layer.5.output.dense.bias: 0.111
+bert.encoder.layer.5.output.LayerNorm.weight: 0.278
+bert.encoder.layer.5.output.LayerNorm.bias: 0.110
+bert.encoder.layer.6.head.0: 1.527
+bert.encoder.layer.6.head.1: 1.434
+bert.encoder.layer.6.head.2: 1.342
+bert.encoder.layer.6.head.3: 1.413
+bert.encoder.layer.6.head.4: 1.631
+bert.encoder.layer.6.head.5: 1.520
+bert.encoder.layer.6.head.6: 1.446
+bert.encoder.layer.6.head.7: 1.479
+bert.encoder.layer.6.head.8: 1.495
+bert.encoder.layer.6.head.9: 1.419
+bert.encoder.layer.6.head.10: 1.414
+bert.encoder.layer.6.head.11: 1.532
+bert.encoder.layer.6.attention.output.dense.weight: 0.323
+bert.encoder.layer.6.attention.output.dense.bias: 0.162
+bert.encoder.layer.6.attention.output.LayerNorm.weight: 0.302
+bert.encoder.layer.6.attention.output.LayerNorm.bias: 0.153
+bert.encoder.layer.6.intermediate.dense.weight: 0.333
+bert.encoder.layer.6.intermediate.dense.bias: 0.261
+bert.encoder.layer.6.output.dense.weight: 0.310
+bert.encoder.layer.6.output.dense.bias: 0.117
+bert.encoder.layer.6.output.LayerNorm.weight: 0.291
+bert.encoder.layer.6.output.LayerNorm.bias: 0.115
+bert.encoder.layer.7.head.0: 1.466
+bert.encoder.layer.7.head.1: 1.526
+bert.encoder.layer.7.head.2: 1.487
+bert.encoder.layer.7.head.3: 1.477
+bert.encoder.layer.7.head.4: 1.527
+bert.encoder.layer.7.head.5: 1.612
+bert.encoder.layer.7.head.6: 1.366
+bert.encoder.layer.7.head.7: 1.408
+bert.encoder.layer.7.head.8: 1.430
+bert.encoder.layer.7.head.9: 1.468
+bert.encoder.layer.7.head.10: 1.435
+bert.encoder.layer.7.head.11: 1.374
+bert.encoder.layer.7.attention.output.dense.weight: 0.326
+bert.encoder.layer.7.attention.output.dense.bias: 0.157
+bert.encoder.layer.7.attention.output.LayerNorm.weight: 0.306
+bert.encoder.layer.7.attention.output.LayerNorm.bias: 0.170
+bert.encoder.layer.7.intermediate.dense.weight: 0.335
+bert.encoder.layer.7.intermediate.dense.bias: 0.285
+bert.encoder.layer.7.output.dense.weight: 0.310
+bert.encoder.layer.7.output.dense.bias: 0.131
+bert.encoder.layer.7.output.LayerNorm.weight: 0.292
+bert.encoder.layer.7.output.LayerNorm.bias: 0.144
+bert.encoder.layer.8.head.0: 1.492
+bert.encoder.layer.8.head.1: 1.735
+bert.encoder.layer.8.head.2: 1.579
+bert.encoder.layer.8.head.3: 1.594
+bert.encoder.layer.8.head.4: 1.434
+bert.encoder.layer.8.head.5: 1.521
+bert.encoder.layer.8.head.6: 1.650
+bert.encoder.layer.8.head.7: 1.822
+bert.encoder.layer.8.head.8: 1.452
+bert.encoder.layer.8.head.9: 1.549
+bert.encoder.layer.8.head.10: 1.542
+bert.encoder.layer.8.head.11: 1.455
+bert.encoder.layer.8.attention.output.dense.weight: 0.323
+bert.encoder.layer.8.attention.output.dense.bias: 0.171
+bert.encoder.layer.8.attention.output.LayerNorm.weight: 0.320
+bert.encoder.layer.8.attention.output.LayerNorm.bias: 0.207
+bert.encoder.layer.8.intermediate.dense.weight: 0.336
+bert.encoder.layer.8.intermediate.dense.bias: 0.300
+bert.encoder.layer.8.output.dense.weight: 0.313
+bert.encoder.layer.8.output.dense.bias: 0.172
+bert.encoder.layer.8.output.LayerNorm.weight: 0.331
+bert.encoder.layer.8.output.LayerNorm.bias: 0.206
+bert.encoder.layer.9.head.0: 1.824
+bert.encoder.layer.9.head.1: 1.533
+bert.encoder.layer.9.head.2: 1.773
+bert.encoder.layer.9.head.3: 1.421
+bert.encoder.layer.9.head.4: 1.539
+bert.encoder.layer.9.head.5: 1.631
+bert.encoder.layer.9.head.6: 1.838
+bert.encoder.layer.9.head.7: 1.588
+bert.encoder.layer.9.head.8: 1.746
+bert.encoder.layer.9.head.9: 1.524
+bert.encoder.layer.9.head.10: 1.525
+bert.encoder.layer.9.head.11: 1.541
+bert.encoder.layer.9.attention.output.dense.weight: 0.316
+bert.encoder.layer.9.attention.output.dense.bias: 0.173
+bert.encoder.layer.9.attention.output.LayerNorm.weight: 0.351
+bert.encoder.layer.9.attention.output.LayerNorm.bias: 0.194
+bert.encoder.layer.9.intermediate.dense.weight: 0.331
+bert.encoder.layer.9.intermediate.dense.bias: 0.304
+bert.encoder.layer.9.output.dense.weight: 0.297
+bert.encoder.layer.9.output.dense.bias: 0.165
+bert.encoder.layer.9.output.LayerNorm.weight: 0.332
+bert.encoder.layer.9.output.LayerNorm.bias: 0.192
+bert.encoder.layer.10.head.0: 1.577
+bert.encoder.layer.10.head.1: 1.475
+bert.encoder.layer.10.head.2: 1.529
+bert.encoder.layer.10.head.3: 2.055
+bert.encoder.layer.10.head.4: 1.379
+bert.encoder.layer.10.head.5: 1.282
+bert.encoder.layer.10.head.6: 1.732
+bert.encoder.layer.10.head.7: 1.473
+bert.encoder.layer.10.head.8: 1.473
+bert.encoder.layer.10.head.9: 1.388
+bert.encoder.layer.10.head.10: 1.812
+bert.encoder.layer.10.head.11: 1.648
+bert.encoder.layer.10.attention.output.dense.weight: 0.309
+bert.encoder.layer.10.attention.output.dense.bias: 0.185
+bert.encoder.layer.10.attention.output.LayerNorm.weight: 0.354
+bert.encoder.layer.10.attention.output.LayerNorm.bias: 0.201
+bert.encoder.layer.10.intermediate.dense.weight: 0.321
+bert.encoder.layer.10.intermediate.dense.bias: 0.307
+bert.encoder.layer.10.output.dense.weight: 0.283
+bert.encoder.layer.10.output.dense.bias: 0.184
+bert.encoder.layer.10.output.LayerNorm.weight: 0.322
+bert.encoder.layer.10.output.LayerNorm.bias: 0.196
+bert.encoder.layer.11.head.0: 1.366
+bert.encoder.layer.11.head.1: 2.079
+bert.encoder.layer.11.head.2: 1.497
+bert.encoder.layer.11.head.3: 1.479
+bert.encoder.layer.11.head.4: 1.424
+bert.encoder.layer.11.head.5: 1.500
+bert.encoder.layer.11.head.6: 1.660
+bert.encoder.layer.11.head.7: 1.447
+bert.encoder.layer.11.head.8: 1.632
+bert.encoder.layer.11.head.9: 1.332
+bert.encoder.layer.11.head.10: 1.445
+bert.encoder.layer.11.head.11: 1.627
+bert.encoder.layer.11.attention.output.dense.weight: 0.274
+bert.encoder.layer.11.attention.output.dense.bias: 0.228
+bert.encoder.layer.11.attention.output.LayerNorm.weight: 0.372
+bert.encoder.layer.11.attention.output.LayerNorm.bias: 0.280
+bert.encoder.layer.11.intermediate.dense.weight: 0.311
+bert.encoder.layer.11.intermediate.dense.bias: 0.312
+bert.encoder.layer.11.output.dense.weight: 0.285
+bert.encoder.layer.11.output.dense.bias: 0.323
+bert.encoder.layer.11.output.LayerNorm.weight: 0.672
+bert.encoder.layer.11.output.LayerNorm.bias: 1.268
+bert.pooler.dense.weight: 7.809
+bert.pooler.dense.bias: 7.688
+qa_outputs.weight: 2.000
+qa_outputs.bias: 2.000
+Weights for encoder layers: {'bert.embeddings.word_embeddings.weight': tensor(0.6652, device='cuda:0'), 'bert.embeddings.position_embeddings.weight': tensor(0.7594, device='cuda:0'), 'bert.embeddings.token_type_embeddings.weight': tensor(0.5880, device='cuda:0'), 'bert.embeddings.LayerNorm.weight': tensor(0.9458, device='cuda:0'), 'bert.embeddings.LayerNorm.bias': tensor(0.5653, device='cuda:0'), 'bert.encoder.layer.0.head.0': tensor(1.4345, device='cuda:0'), 'bert.encoder.layer.0.head.1': tensor(1.6770, device='cuda:0'), 'bert.encoder.layer.0.head.2': tensor(1.5573, device='cuda:0'), 'bert.encoder.layer.0.head.3': tensor(1.6007, device='cuda:0'), 'bert.encoder.layer.0.head.4': tensor(1.5506, device='cuda:0'), 'bert.encoder.layer.0.head.5': tensor(1.5286, device='cuda:0'), 'bert.encoder.layer.0.head.6': tensor(1.4939, device='cuda:0'), 'bert.encoder.layer.0.head.7': tensor(1.5348, device='cuda:0'), 'bert.encoder.layer.0.head.8': tensor(1.6039, device='cuda:0'), 'bert.encoder.layer.0.head.9': tensor(1.4429, device='cuda:0'), 'bert.encoder.layer.0.head.10': tensor(1.5744, device='cuda:0'), 'bert.encoder.layer.0.head.11': tensor(1.6759, device='cuda:0'), 'bert.encoder.layer.0.attention.output.dense.weight': tensor(0.3073, device='cuda:0'), 'bert.encoder.layer.0.attention.output.dense.bias': tensor(0.1364, device='cuda:0'), 'bert.encoder.layer.0.attention.output.LayerNorm.weight': tensor(0.3207, device='cuda:0'), 'bert.encoder.layer.0.attention.output.LayerNorm.bias': tensor(0.1323, device='cuda:0'), 'bert.encoder.layer.0.intermediate.dense.weight': tensor(0.3327, device='cuda:0'), 'bert.encoder.layer.0.intermediate.dense.bias': tensor(0.2690, device='cuda:0'), 'bert.encoder.layer.0.output.dense.weight': tensor(0.3200, device='cuda:0'), 'bert.encoder.layer.0.output.dense.bias': tensor(0.1416, device='cuda:0'), 'bert.encoder.layer.0.output.LayerNorm.weight': tensor(0.3142, device='cuda:0'), 'bert.encoder.layer.0.output.LayerNorm.bias': tensor(0.1628, device='cuda:0'), 'bert.encoder.layer.1.head.0': tensor(1.5366, device='cuda:0'), 'bert.encoder.layer.1.head.1': tensor(1.4721, device='cuda:0'), 'bert.encoder.layer.1.head.2': tensor(1.4609, device='cuda:0'), 'bert.encoder.layer.1.head.3': tensor(1.4755, device='cuda:0'), 'bert.encoder.layer.1.head.4': tensor(1.5892, device='cuda:0'), 'bert.encoder.layer.1.head.5': tensor(1.4373, device='cuda:0'), 'bert.encoder.layer.1.head.6': tensor(1.6324, device='cuda:0'), 'bert.encoder.layer.1.head.7': tensor(1.5930, device='cuda:0'), 'bert.encoder.layer.1.head.8': tensor(1.3753, device='cuda:0'), 'bert.encoder.layer.1.head.9': tensor(1.6177, device='cuda:0'), 'bert.encoder.layer.1.head.10': tensor(1.5353, device='cuda:0'), 'bert.encoder.layer.1.head.11': tensor(2.3585, device='cuda:0'), 'bert.encoder.layer.1.attention.output.dense.weight': tensor(0.3034, device='cuda:0'), 'bert.encoder.layer.1.attention.output.dense.bias': tensor(0.1495, device='cuda:0'), 'bert.encoder.layer.1.attention.output.LayerNorm.weight': tensor(0.3277, device='cuda:0'), 'bert.encoder.layer.1.attention.output.LayerNorm.bias': tensor(0.1387, device='cuda:0'), 'bert.encoder.layer.1.intermediate.dense.weight': tensor(0.3318, device='cuda:0'), 'bert.encoder.layer.1.intermediate.dense.bias': tensor(0.2518, device='cuda:0'), 'bert.encoder.layer.1.output.dense.weight': tensor(0.3152, device='cuda:0'), 'bert.encoder.layer.1.output.dense.bias': tensor(0.1238, device='cuda:0'), 'bert.encoder.layer.1.output.LayerNorm.weight': tensor(0.3228, device='cuda:0'), 'bert.encoder.layer.1.output.LayerNorm.bias': tensor(0.1232, device='cuda:0'), 'bert.encoder.layer.2.head.0': tensor(1.4302, device='cuda:0'), 'bert.encoder.layer.2.head.1': tensor(1.5054, device='cuda:0'), 'bert.encoder.layer.2.head.2': tensor(1.5020, device='cuda:0'), 'bert.encoder.layer.2.head.3': tensor(1.4489, device='cuda:0'), 'bert.encoder.layer.2.head.4': tensor(1.4086, device='cuda:0'), 'bert.encoder.layer.2.head.5': tensor(1.4060, device='cuda:0'), 'bert.encoder.layer.2.head.6': tensor(1.9674, device='cuda:0'), 'bert.encoder.layer.2.head.7': tensor(1.4605, device='cuda:0'), 'bert.encoder.layer.2.head.8': tensor(1.3664, device='cuda:0'), 'bert.encoder.layer.2.head.9': tensor(1.4752, device='cuda:0'), 'bert.encoder.layer.2.head.10': tensor(1.5787, device='cuda:0'), 'bert.encoder.layer.2.head.11': tensor(1.5109, device='cuda:0'), 'bert.encoder.layer.2.attention.output.dense.weight': tensor(0.3038, device='cuda:0'), 'bert.encoder.layer.2.attention.output.dense.bias': tensor(0.1364, device='cuda:0'), 'bert.encoder.layer.2.attention.output.LayerNorm.weight': tensor(0.3101, device='cuda:0'), 'bert.encoder.layer.2.attention.output.LayerNorm.bias': tensor(0.1320, device='cuda:0'), 'bert.encoder.layer.2.intermediate.dense.weight': tensor(0.3294, device='cuda:0'), 'bert.encoder.layer.2.intermediate.dense.bias': tensor(0.2473, device='cuda:0'), 'bert.encoder.layer.2.output.dense.weight': tensor(0.3145, device='cuda:0'), 'bert.encoder.layer.2.output.dense.bias': tensor(0.1315, device='cuda:0'), 'bert.encoder.layer.2.output.LayerNorm.weight': tensor(0.3040, device='cuda:0'), 'bert.encoder.layer.2.output.LayerNorm.bias': tensor(0.1360, device='cuda:0'), 'bert.encoder.layer.3.head.0': tensor(1.5970, device='cuda:0'), 'bert.encoder.layer.3.head.1': tensor(1.7897, device='cuda:0'), 'bert.encoder.layer.3.head.2': tensor(1.4038, device='cuda:0'), 'bert.encoder.layer.3.head.3': tensor(1.4808, device='cuda:0'), 'bert.encoder.layer.3.head.4': tensor(1.4957, device='cuda:0'), 'bert.encoder.layer.3.head.5': tensor(1.5064, device='cuda:0'), 'bert.encoder.layer.3.head.6': tensor(1.4094, device='cuda:0'), 'bert.encoder.layer.3.head.7': tensor(1.5091, device='cuda:0'), 'bert.encoder.layer.3.head.8': tensor(1.7073, device='cuda:0'), 'bert.encoder.layer.3.head.9': tensor(1.7321, device='cuda:0'), 'bert.encoder.layer.3.head.10': tensor(1.4912, device='cuda:0'), 'bert.encoder.layer.3.head.11': tensor(1.4323, device='cuda:0'), 'bert.encoder.layer.3.attention.output.dense.weight': tensor(0.3099, device='cuda:0'), 'bert.encoder.layer.3.attention.output.dense.bias': tensor(0.1363, device='cuda:0'), 'bert.encoder.layer.3.attention.output.LayerNorm.weight': tensor(0.2991, device='cuda:0'), 'bert.encoder.layer.3.attention.output.LayerNorm.bias': tensor(0.1359, device='cuda:0'), 'bert.encoder.layer.3.intermediate.dense.weight': tensor(0.3308, device='cuda:0'), 'bert.encoder.layer.3.intermediate.dense.bias': tensor(0.2605, device='cuda:0'), 'bert.encoder.layer.3.output.dense.weight': tensor(0.3135, device='cuda:0'), 'bert.encoder.layer.3.output.dense.bias': tensor(0.1195, device='cuda:0'), 'bert.encoder.layer.3.output.LayerNorm.weight': tensor(0.2999, device='cuda:0'), 'bert.encoder.layer.3.output.LayerNorm.bias': tensor(0.1393, device='cuda:0'), 'bert.encoder.layer.4.head.0': tensor(1.5805, device='cuda:0'), 'bert.encoder.layer.4.head.1': tensor(1.5164, device='cuda:0'), 'bert.encoder.layer.4.head.2': tensor(1.5151, device='cuda:0'), 'bert.encoder.layer.4.head.3': tensor(1.7818, device='cuda:0'), 'bert.encoder.layer.4.head.4': tensor(1.5680, device='cuda:0'), 'bert.encoder.layer.4.head.5': tensor(1.4318, device='cuda:0'), 'bert.encoder.layer.4.head.6': tensor(1.5781, device='cuda:0'), 'bert.encoder.layer.4.head.7': tensor(1.5118, device='cuda:0'), 'bert.encoder.layer.4.head.8': tensor(1.3805, device='cuda:0'), 'bert.encoder.layer.4.head.9': tensor(1.5567, device='cuda:0'), 'bert.encoder.layer.4.head.10': tensor(1.3432, device='cuda:0'), 'bert.encoder.layer.4.head.11': tensor(1.6236, device='cuda:0'), 'bert.encoder.layer.4.attention.output.dense.weight': tensor(0.3192, device='cuda:0'), 'bert.encoder.layer.4.attention.output.dense.bias': tensor(0.1426, device='cuda:0'), 'bert.encoder.layer.4.attention.output.LayerNorm.weight': tensor(0.3001, device='cuda:0'), 'bert.encoder.layer.4.attention.output.LayerNorm.bias': tensor(0.1461, device='cuda:0'), 'bert.encoder.layer.4.intermediate.dense.weight': tensor(0.3309, device='cuda:0'), 'bert.encoder.layer.4.intermediate.dense.bias': tensor(0.2574, device='cuda:0'), 'bert.encoder.layer.4.output.dense.weight': tensor(0.3084, device='cuda:0'), 'bert.encoder.layer.4.output.dense.bias': tensor(0.1103, device='cuda:0'), 'bert.encoder.layer.4.output.LayerNorm.weight': tensor(0.2790, device='cuda:0'), 'bert.encoder.layer.4.output.LayerNorm.bias': tensor(0.1099, device='cuda:0'), 'bert.encoder.layer.5.head.0': tensor(1.3783, device='cuda:0'), 'bert.encoder.layer.5.head.1': tensor(1.4177, device='cuda:0'), 'bert.encoder.layer.5.head.2': tensor(1.4905, device='cuda:0'), 'bert.encoder.layer.5.head.3': tensor(1.3438, device='cuda:0'), 'bert.encoder.layer.5.head.4': tensor(1.4427, device='cuda:0'), 'bert.encoder.layer.5.head.5': tensor(1.4823, device='cuda:0'), 'bert.encoder.layer.5.head.6': tensor(1.4593, device='cuda:0'), 'bert.encoder.layer.5.head.7': tensor(1.4172, device='cuda:0'), 'bert.encoder.layer.5.head.8': tensor(1.3646, device='cuda:0'), 'bert.encoder.layer.5.head.9': tensor(1.4497, device='cuda:0'), 'bert.encoder.layer.5.head.10': tensor(1.4558, device='cuda:0'), 'bert.encoder.layer.5.head.11': tensor(1.4011, device='cuda:0'), 'bert.encoder.layer.5.attention.output.dense.weight': tensor(0.3264, device='cuda:0'), 'bert.encoder.layer.5.attention.output.dense.bias': tensor(0.1417, device='cuda:0'), 'bert.encoder.layer.5.attention.output.LayerNorm.weight': tensor(0.3047, device='cuda:0'), 'bert.encoder.layer.5.attention.output.LayerNorm.bias': tensor(0.1389, device='cuda:0'), 'bert.encoder.layer.5.intermediate.dense.weight': tensor(0.3305, device='cuda:0'), 'bert.encoder.layer.5.intermediate.dense.bias': tensor(0.2515, device='cuda:0'), 'bert.encoder.layer.5.output.dense.weight': tensor(0.3115, device='cuda:0'), 'bert.encoder.layer.5.output.dense.bias': tensor(0.1114, device='cuda:0'), 'bert.encoder.layer.5.output.LayerNorm.weight': tensor(0.2784, device='cuda:0'), 'bert.encoder.layer.5.output.LayerNorm.bias': tensor(0.1095, device='cuda:0'), 'bert.encoder.layer.6.head.0': tensor(1.5272, device='cuda:0'), 'bert.encoder.layer.6.head.1': tensor(1.4335, device='cuda:0'), 'bert.encoder.layer.6.head.2': tensor(1.3422, device='cuda:0'), 'bert.encoder.layer.6.head.3': tensor(1.4128, device='cuda:0'), 'bert.encoder.layer.6.head.4': tensor(1.6313, device='cuda:0'), 'bert.encoder.layer.6.head.5': tensor(1.5198, device='cuda:0'), 'bert.encoder.layer.6.head.6': tensor(1.4459, device='cuda:0'), 'bert.encoder.layer.6.head.7': tensor(1.4788, device='cuda:0'), 'bert.encoder.layer.6.head.8': tensor(1.4953, device='cuda:0'), 'bert.encoder.layer.6.head.9': tensor(1.4189, device='cuda:0'), 'bert.encoder.layer.6.head.10': tensor(1.4141, device='cuda:0'), 'bert.encoder.layer.6.head.11': tensor(1.5318, device='cuda:0'), 'bert.encoder.layer.6.attention.output.dense.weight': tensor(0.3230, device='cuda:0'), 'bert.encoder.layer.6.attention.output.dense.bias': tensor(0.1616, device='cuda:0'), 'bert.encoder.layer.6.attention.output.LayerNorm.weight': tensor(0.3016, device='cuda:0'), 'bert.encoder.layer.6.attention.output.LayerNorm.bias': tensor(0.1526, device='cuda:0'), 'bert.encoder.layer.6.intermediate.dense.weight': tensor(0.3330, device='cuda:0'), 'bert.encoder.layer.6.intermediate.dense.bias': tensor(0.2607, device='cuda:0'), 'bert.encoder.layer.6.output.dense.weight': tensor(0.3103, device='cuda:0'), 'bert.encoder.layer.6.output.dense.bias': tensor(0.1169, device='cuda:0'), 'bert.encoder.layer.6.output.LayerNorm.weight': tensor(0.2911, device='cuda:0'), 'bert.encoder.layer.6.output.LayerNorm.bias': tensor(0.1150, device='cuda:0'), 'bert.encoder.layer.7.head.0': tensor(1.4663, device='cuda:0'), 'bert.encoder.layer.7.head.1': tensor(1.5262, device='cuda:0'), 'bert.encoder.layer.7.head.2': tensor(1.4871, device='cuda:0'), 'bert.encoder.layer.7.head.3': tensor(1.4775, device='cuda:0'), 'bert.encoder.layer.7.head.4': tensor(1.5269, device='cuda:0'), 'bert.encoder.layer.7.head.5': tensor(1.6124, device='cuda:0'), 'bert.encoder.layer.7.head.6': tensor(1.3663, device='cuda:0'), 'bert.encoder.layer.7.head.7': tensor(1.4080, device='cuda:0'), 'bert.encoder.layer.7.head.8': tensor(1.4296, device='cuda:0'), 'bert.encoder.layer.7.head.9': tensor(1.4684, device='cuda:0'), 'bert.encoder.layer.7.head.10': tensor(1.4349, device='cuda:0'), 'bert.encoder.layer.7.head.11': tensor(1.3742, device='cuda:0'), 'bert.encoder.layer.7.attention.output.dense.weight': tensor(0.3263, device='cuda:0'), 'bert.encoder.layer.7.attention.output.dense.bias': tensor(0.1574, device='cuda:0'), 'bert.encoder.layer.7.attention.output.LayerNorm.weight': tensor(0.3059, device='cuda:0'), 'bert.encoder.layer.7.attention.output.LayerNorm.bias': tensor(0.1698, device='cuda:0'), 'bert.encoder.layer.7.intermediate.dense.weight': tensor(0.3354, device='cuda:0'), 'bert.encoder.layer.7.intermediate.dense.bias': tensor(0.2848, device='cuda:0'), 'bert.encoder.layer.7.output.dense.weight': tensor(0.3105, device='cuda:0'), 'bert.encoder.layer.7.output.dense.bias': tensor(0.1306, device='cuda:0'), 'bert.encoder.layer.7.output.LayerNorm.weight': tensor(0.2923, device='cuda:0'), 'bert.encoder.layer.7.output.LayerNorm.bias': tensor(0.1441, device='cuda:0'), 'bert.encoder.layer.8.head.0': tensor(1.4919, device='cuda:0'), 'bert.encoder.layer.8.head.1': tensor(1.7345, device='cuda:0'), 'bert.encoder.layer.8.head.2': tensor(1.5792, device='cuda:0'), 'bert.encoder.layer.8.head.3': tensor(1.5944, device='cuda:0'), 'bert.encoder.layer.8.head.4': tensor(1.4345, device='cuda:0'), 'bert.encoder.layer.8.head.5': tensor(1.5213, device='cuda:0'), 'bert.encoder.layer.8.head.6': tensor(1.6497, device='cuda:0'), 'bert.encoder.layer.8.head.7': tensor(1.8215, device='cuda:0'), 'bert.encoder.layer.8.head.8': tensor(1.4516, device='cuda:0'), 'bert.encoder.layer.8.head.9': tensor(1.5488, device='cuda:0'), 'bert.encoder.layer.8.head.10': tensor(1.5417, device='cuda:0'), 'bert.encoder.layer.8.head.11': tensor(1.4551, device='cuda:0'), 'bert.encoder.layer.8.attention.output.dense.weight': tensor(0.3229, device='cuda:0'), 'bert.encoder.layer.8.attention.output.dense.bias': tensor(0.1705, device='cuda:0'), 'bert.encoder.layer.8.attention.output.LayerNorm.weight': tensor(0.3197, device='cuda:0'), 'bert.encoder.layer.8.attention.output.LayerNorm.bias': tensor(0.2073, device='cuda:0'), 'bert.encoder.layer.8.intermediate.dense.weight': tensor(0.3360, device='cuda:0'), 'bert.encoder.layer.8.intermediate.dense.bias': tensor(0.2997, device='cuda:0'), 'bert.encoder.layer.8.output.dense.weight': tensor(0.3130, device='cuda:0'), 'bert.encoder.layer.8.output.dense.bias': tensor(0.1724, device='cuda:0'), 'bert.encoder.layer.8.output.LayerNorm.weight': tensor(0.3314, device='cuda:0'), 'bert.encoder.layer.8.output.LayerNorm.bias': tensor(0.2060, device='cuda:0'), 'bert.encoder.layer.9.head.0': tensor(1.8243, device='cuda:0'), 'bert.encoder.layer.9.head.1': tensor(1.5331, device='cuda:0'), 'bert.encoder.layer.9.head.2': tensor(1.7732, device='cuda:0'), 'bert.encoder.layer.9.head.3': tensor(1.4206, device='cuda:0'), 'bert.encoder.layer.9.head.4': tensor(1.5388, device='cuda:0'), 'bert.encoder.layer.9.head.5': tensor(1.6311, device='cuda:0'), 'bert.encoder.layer.9.head.6': tensor(1.8377, device='cuda:0'), 'bert.encoder.layer.9.head.7': tensor(1.5879, device='cuda:0'), 'bert.encoder.layer.9.head.8': tensor(1.7464, device='cuda:0'), 'bert.encoder.layer.9.head.9': tensor(1.5235, device='cuda:0'), 'bert.encoder.layer.9.head.10': tensor(1.5253, device='cuda:0'), 'bert.encoder.layer.9.head.11': tensor(1.5412, device='cuda:0'), 'bert.encoder.layer.9.attention.output.dense.weight': tensor(0.3158, device='cuda:0'), 'bert.encoder.layer.9.attention.output.dense.bias': tensor(0.1727, device='cuda:0'), 'bert.encoder.layer.9.attention.output.LayerNorm.weight': tensor(0.3508, device='cuda:0'), 'bert.encoder.layer.9.attention.output.LayerNorm.bias': tensor(0.1938, device='cuda:0'), 'bert.encoder.layer.9.intermediate.dense.weight': tensor(0.3314, device='cuda:0'), 'bert.encoder.layer.9.intermediate.dense.bias': tensor(0.3042, device='cuda:0'), 'bert.encoder.layer.9.output.dense.weight': tensor(0.2967, device='cuda:0'), 'bert.encoder.layer.9.output.dense.bias': tensor(0.1652, device='cuda:0'), 'bert.encoder.layer.9.output.LayerNorm.weight': tensor(0.3316, device='cuda:0'), 'bert.encoder.layer.9.output.LayerNorm.bias': tensor(0.1921, device='cuda:0'), 'bert.encoder.layer.10.head.0': tensor(1.5767, device='cuda:0'), 'bert.encoder.layer.10.head.1': tensor(1.4755, device='cuda:0'), 'bert.encoder.layer.10.head.2': tensor(1.5293, device='cuda:0'), 'bert.encoder.layer.10.head.3': tensor(2.0555, device='cuda:0'), 'bert.encoder.layer.10.head.4': tensor(1.3792, device='cuda:0'), 'bert.encoder.layer.10.head.5': tensor(1.2819, device='cuda:0'), 'bert.encoder.layer.10.head.6': tensor(1.7323, device='cuda:0'), 'bert.encoder.layer.10.head.7': tensor(1.4727, device='cuda:0'), 'bert.encoder.layer.10.head.8': tensor(1.4732, device='cuda:0'), 'bert.encoder.layer.10.head.9': tensor(1.3882, device='cuda:0'), 'bert.encoder.layer.10.head.10': tensor(1.8116, device='cuda:0'), 'bert.encoder.layer.10.head.11': tensor(1.6484, device='cuda:0'), 'bert.encoder.layer.10.attention.output.dense.weight': tensor(0.3086, device='cuda:0'), 'bert.encoder.layer.10.attention.output.dense.bias': tensor(0.1846, device='cuda:0'), 'bert.encoder.layer.10.attention.output.LayerNorm.weight': tensor(0.3535, device='cuda:0'), 'bert.encoder.layer.10.attention.output.LayerNorm.bias': tensor(0.2010, device='cuda:0'), 'bert.encoder.layer.10.intermediate.dense.weight': tensor(0.3213, device='cuda:0'), 'bert.encoder.layer.10.intermediate.dense.bias': tensor(0.3068, device='cuda:0'), 'bert.encoder.layer.10.output.dense.weight': tensor(0.2834, device='cuda:0'), 'bert.encoder.layer.10.output.dense.bias': tensor(0.1838, device='cuda:0'), 'bert.encoder.layer.10.output.LayerNorm.weight': tensor(0.3221, device='cuda:0'), 'bert.encoder.layer.10.output.LayerNorm.bias': tensor(0.1960, device='cuda:0'), 'bert.encoder.layer.11.head.0': tensor(1.3657, device='cuda:0'), 'bert.encoder.layer.11.head.1': tensor(2.0792, device='cuda:0'), 'bert.encoder.layer.11.head.2': tensor(1.4974, device='cuda:0'), 'bert.encoder.layer.11.head.3': tensor(1.4787, device='cuda:0'), 'bert.encoder.layer.11.head.4': tensor(1.4239, device='cuda:0'), 'bert.encoder.layer.11.head.5': tensor(1.5001, device='cuda:0'), 'bert.encoder.layer.11.head.6': tensor(1.6599, device='cuda:0'), 'bert.encoder.layer.11.head.7': tensor(1.4469, device='cuda:0'), 'bert.encoder.layer.11.head.8': tensor(1.6318, device='cuda:0'), 'bert.encoder.layer.11.head.9': tensor(1.3319, device='cuda:0'), 'bert.encoder.layer.11.head.10': tensor(1.4449, device='cuda:0'), 'bert.encoder.layer.11.head.11': tensor(1.6273, device='cuda:0'), 'bert.encoder.layer.11.attention.output.dense.weight': tensor(0.2742, device='cuda:0'), 'bert.encoder.layer.11.attention.output.dense.bias': tensor(0.2282, device='cuda:0'), 'bert.encoder.layer.11.attention.output.LayerNorm.weight': tensor(0.3724, device='cuda:0'), 'bert.encoder.layer.11.attention.output.LayerNorm.bias': tensor(0.2797, device='cuda:0'), 'bert.encoder.layer.11.intermediate.dense.weight': tensor(0.3112, device='cuda:0'), 'bert.encoder.layer.11.intermediate.dense.bias': tensor(0.3122, device='cuda:0'), 'bert.encoder.layer.11.output.dense.weight': tensor(0.2854, device='cuda:0'), 'bert.encoder.layer.11.output.dense.bias': tensor(0.3234, device='cuda:0'), 'bert.encoder.layer.11.output.LayerNorm.weight': tensor(0.6717, device='cuda:0'), 'bert.encoder.layer.11.output.LayerNorm.bias': tensor(1.2679, device='cuda:0'), 'bert.pooler.dense.weight': tensor(7.8086, device='cuda:0'), 'bert.pooler.dense.bias': tensor(7.6881, device='cuda:0'), 'qa_outputs.weight': tensor(2., device='cuda:0'), 'qa_outputs.bias': tensor(2., device='cuda:0')}
+Epoch 1/3
+Training:   0%|                    | 0/1384 [00:00<?, ?it/s, loss=5.97, lr=5e-5]/root/workdir/squad.py:186: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  train_loss_df = pd.concat([train_loss_df, pd.DataFrame([{
+Epoch 1/3 - Average Loss: 1.3915
+Evaluating: 100%|█████████████████████████████| 337/337 [00:28<00:00, 11.81it/s]
+Validation Loss: 1.0141
+Exact Match (EM): 68.19
+F1 Score: 78.14
+/root/workdir/squad.py:276: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  eval_loss_df = pd.concat([eval_loss_df, pd.DataFrame([{
+Epoch 2/3
+Epoch 2/3 - Average Loss: 0.7987
+Evaluating: 100%|█████████████████████████████| 337/337 [00:28<00:00, 11.83it/s]
+Validation Loss: 1.0045
+Exact Match (EM): 69.71
+F1 Score: 79.10
+Epoch 3/3
+Epoch 3/3 - Average Loss: 0.5693
+Evaluating: 100%|█████████████████████████████| 337/337 [00:28<00:00, 11.77it/s]
+Validation Loss: 1.0736
+Exact Match (EM): 69.79
+F1 Score: 79.30
+Training complete!
+Saving model...
+Model saved to ./fine_tuned_bert_qa
+
+Process finished with exit code 0
