@@ -13,3 +13,8 @@ To correspond to these three models, I assigned three postfixes to name the resu
 The sequence of models, squad → covid → spanish, reflects an increasing distance from the original fine-tuning task, which can be observed through weight visualizations.
 
 **From the evaluation results, it is clear that the model fine-tuned on squad performs best across all evaluation metrics, followed by the covid model, and finally, the spanish model.**
+
+i add new images, you can use:
+
+eval_all or eval_em and eval_f1 for evaluation metrics
+train_all for training metrics
