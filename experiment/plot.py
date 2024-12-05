@@ -51,7 +51,7 @@ def plot_lr_curves(dataframes):
     plt.show()
 
 # Example usage
-directory_path = "results"  # Replace with your directory path
+directory_path = "../results"  # Replace with your directory path
 dataframes = load_csv_files(directory_path)
 plot_loss_curves(dataframes)
 plot_lr_curves(dataframes)

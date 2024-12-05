@@ -58,7 +58,7 @@ def plot_eval_metrics_curves(dataframes):
     plt.show()
 
 # Example usage
-directory_path = "results"  # Replace with your directory path
+directory_path = "../results"  # Replace with your directory path
 eval_dataframes = load_eval_csv_files(directory_path)
 plot_eval_loss_curves(eval_dataframes)
 plot_eval_metrics_curves(eval_dataframes)
