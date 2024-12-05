@@ -1,0 +1,352 @@
+/usr/bin/python3 /root/workdir/squad.py
+Loading dataset...
+Creating DataLoaders...
+Initializing model...
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Starting training...
+/usr/local/lib/python3.10/dist-packages/transformers/optimization.py:591: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+BertForQuestionAnswering(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(30522, 768, padding_idx=0)
+      (position_embeddings): Embedding(512, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0-11): 12 x BertLayer(
+          (attention): BertAttention(
+            (self): BertSdpaSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (qa_outputs): Linear(in_features=768, out_features=2, bias=True)
+)
+Some weights of BertModel were not initialized from the model checkpoint at fine_tuned_bert_qa and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Layer-Head Absolute Differences (Averaged):
+bert.embeddings.word_embeddings.weight: 0.726
+bert.embeddings.position_embeddings.weight: 0.688
+bert.embeddings.token_type_embeddings.weight: 0.285
+bert.embeddings.LayerNorm.weight: 0.949
+bert.embeddings.LayerNorm.bias: 0.569
+bert.encoder.layer.0.head.0: 1.455
+bert.encoder.layer.0.head.1: 1.516
+bert.encoder.layer.0.head.2: 1.476
+bert.encoder.layer.0.head.3: 1.865
+bert.encoder.layer.0.head.4: 1.147
+bert.encoder.layer.0.head.5: 1.367
+bert.encoder.layer.0.head.6: 1.238
+bert.encoder.layer.0.head.7: 1.311
+bert.encoder.layer.0.head.8: 1.349
+bert.encoder.layer.0.head.9: 1.267
+bert.encoder.layer.0.head.10: 1.483
+bert.encoder.layer.0.head.11: 1.436
+bert.encoder.layer.0.attention.output.dense.weight: 0.288
+bert.encoder.layer.0.attention.output.dense.bias: 0.169
+bert.encoder.layer.0.attention.output.LayerNorm.weight: 0.309
+bert.encoder.layer.0.attention.output.LayerNorm.bias: 0.174
+bert.encoder.layer.0.intermediate.dense.weight: 0.310
+bert.encoder.layer.0.intermediate.dense.bias: 0.272
+bert.encoder.layer.0.output.dense.weight: 0.302
+bert.encoder.layer.0.output.dense.bias: 0.177
+bert.encoder.layer.0.output.LayerNorm.weight: 0.297
+bert.encoder.layer.0.output.LayerNorm.bias: 0.165
+bert.encoder.layer.1.head.0: 1.282
+bert.encoder.layer.1.head.1: 1.357
+bert.encoder.layer.1.head.2: 1.193
+bert.encoder.layer.1.head.3: 1.186
+bert.encoder.layer.1.head.4: 1.267
+bert.encoder.layer.1.head.5: 1.350
+bert.encoder.layer.1.head.6: 1.156
+bert.encoder.layer.1.head.7: 1.238
+bert.encoder.layer.1.head.8: 1.299
+bert.encoder.layer.1.head.9: 1.239
+bert.encoder.layer.1.head.10: 1.292
+bert.encoder.layer.1.head.11: 1.434
+bert.encoder.layer.1.attention.output.dense.weight: 0.293
+bert.encoder.layer.1.attention.output.dense.bias: 0.167
+bert.encoder.layer.1.attention.output.LayerNorm.weight: 0.298
+bert.encoder.layer.1.attention.output.LayerNorm.bias: 0.171
+bert.encoder.layer.1.intermediate.dense.weight: 0.314
+bert.encoder.layer.1.intermediate.dense.bias: 0.275
+bert.encoder.layer.1.output.dense.weight: 0.299
+bert.encoder.layer.1.output.dense.bias: 0.152
+bert.encoder.layer.1.output.LayerNorm.weight: 0.298
+bert.encoder.layer.1.output.LayerNorm.bias: 0.136
+bert.encoder.layer.2.head.0: 1.169
+bert.encoder.layer.2.head.1: 1.350
+bert.encoder.layer.2.head.2: 1.280
+bert.encoder.layer.2.head.3: 1.296
+bert.encoder.layer.2.head.4: 1.194
+bert.encoder.layer.2.head.5: 1.202
+bert.encoder.layer.2.head.6: 1.417
+bert.encoder.layer.2.head.7: 1.158
+bert.encoder.layer.2.head.8: 1.192
+bert.encoder.layer.2.head.9: 1.230
+bert.encoder.layer.2.head.10: 1.375
+bert.encoder.layer.2.head.11: 1.362
+bert.encoder.layer.2.attention.output.dense.weight: 0.291
+bert.encoder.layer.2.attention.output.dense.bias: 0.145
+bert.encoder.layer.2.attention.output.LayerNorm.weight: 0.299
+bert.encoder.layer.2.attention.output.LayerNorm.bias: 0.150
+bert.encoder.layer.2.intermediate.dense.weight: 0.316
+bert.encoder.layer.2.intermediate.dense.bias: 0.271
+bert.encoder.layer.2.output.dense.weight: 0.304
+bert.encoder.layer.2.output.dense.bias: 0.162
+bert.encoder.layer.2.output.LayerNorm.weight: 0.303
+bert.encoder.layer.2.output.LayerNorm.bias: 0.162
+bert.encoder.layer.3.head.0: 1.526
+bert.encoder.layer.3.head.1: 1.308
+bert.encoder.layer.3.head.2: 1.294
+bert.encoder.layer.3.head.3: 1.245
+bert.encoder.layer.3.head.4: 1.246
+bert.encoder.layer.3.head.5: 1.381
+bert.encoder.layer.3.head.6: 1.236
+bert.encoder.layer.3.head.7: 1.244
+bert.encoder.layer.3.head.8: 1.637
+bert.encoder.layer.3.head.9: 1.279
+bert.encoder.layer.3.head.10: 1.364
+bert.encoder.layer.3.head.11: 1.293
+bert.encoder.layer.3.attention.output.dense.weight: 0.299
+bert.encoder.layer.3.attention.output.dense.bias: 0.161
+bert.encoder.layer.3.attention.output.LayerNorm.weight: 0.310
+bert.encoder.layer.3.attention.output.LayerNorm.bias: 0.175
+bert.encoder.layer.3.intermediate.dense.weight: 0.327
+bert.encoder.layer.3.intermediate.dense.bias: 0.283
+bert.encoder.layer.3.output.dense.weight: 0.312
+bert.encoder.layer.3.output.dense.bias: 0.148
+bert.encoder.layer.3.output.LayerNorm.weight: 0.302
+bert.encoder.layer.3.output.LayerNorm.bias: 0.139
+bert.encoder.layer.4.head.0: 1.484
+bert.encoder.layer.4.head.1: 1.310
+bert.encoder.layer.4.head.2: 1.312
+bert.encoder.layer.4.head.3: 1.418
+bert.encoder.layer.4.head.4: 1.609
+bert.encoder.layer.4.head.5: 1.324
+bert.encoder.layer.4.head.6: 1.539
+bert.encoder.layer.4.head.7: 1.292
+bert.encoder.layer.4.head.8: 1.304
+bert.encoder.layer.4.head.9: 1.409
+bert.encoder.layer.4.head.10: 1.272
+bert.encoder.layer.4.head.11: 1.363
+bert.encoder.layer.4.attention.output.dense.weight: 0.314
+bert.encoder.layer.4.attention.output.dense.bias: 0.158
+bert.encoder.layer.4.attention.output.LayerNorm.weight: 0.296
+bert.encoder.layer.4.attention.output.LayerNorm.bias: 0.172
+bert.encoder.layer.4.intermediate.dense.weight: 0.330
+bert.encoder.layer.4.intermediate.dense.bias: 0.284
+bert.encoder.layer.4.output.dense.weight: 0.309
+bert.encoder.layer.4.output.dense.bias: 0.143
+bert.encoder.layer.4.output.LayerNorm.weight: 0.293
+bert.encoder.layer.4.output.LayerNorm.bias: 0.152
+bert.encoder.layer.5.head.0: 1.369
+bert.encoder.layer.5.head.1: 1.374
+bert.encoder.layer.5.head.2: 1.388
+bert.encoder.layer.5.head.3: 1.341
+bert.encoder.layer.5.head.4: 1.412
+bert.encoder.layer.5.head.5: 1.327
+bert.encoder.layer.5.head.6: 1.419
+bert.encoder.layer.5.head.7: 1.379
+bert.encoder.layer.5.head.8: 1.293
+bert.encoder.layer.5.head.9: 1.399
+bert.encoder.layer.5.head.10: 1.338
+bert.encoder.layer.5.head.11: 1.334
+bert.encoder.layer.5.attention.output.dense.weight: 0.332
+bert.encoder.layer.5.attention.output.dense.bias: 0.187
+bert.encoder.layer.5.attention.output.LayerNorm.weight: 0.318
+bert.encoder.layer.5.attention.output.LayerNorm.bias: 0.195
+bert.encoder.layer.5.intermediate.dense.weight: 0.337
+bert.encoder.layer.5.intermediate.dense.bias: 0.296
+bert.encoder.layer.5.output.dense.weight: 0.326
+bert.encoder.layer.5.output.dense.bias: 0.188
+bert.encoder.layer.5.output.LayerNorm.weight: 0.312
+bert.encoder.layer.5.output.LayerNorm.bias: 0.223
+bert.encoder.layer.6.head.0: 1.988
+bert.encoder.layer.6.head.1: 1.414
+bert.encoder.layer.6.head.2: 1.501
+bert.encoder.layer.6.head.3: 1.362
+bert.encoder.layer.6.head.4: 1.415
+bert.encoder.layer.6.head.5: 1.454
+bert.encoder.layer.6.head.6: 1.373
+bert.encoder.layer.6.head.7: 1.762
+bert.encoder.layer.6.head.8: 1.838
+bert.encoder.layer.6.head.9: 1.421
+bert.encoder.layer.6.head.10: 1.624
+bert.encoder.layer.6.head.11: 1.446
+bert.encoder.layer.6.attention.output.dense.weight: 0.337
+bert.encoder.layer.6.attention.output.dense.bias: 0.168
+bert.encoder.layer.6.attention.output.LayerNorm.weight: 0.330
+bert.encoder.layer.6.attention.output.LayerNorm.bias: 0.176
+bert.encoder.layer.6.intermediate.dense.weight: 0.343
+bert.encoder.layer.6.intermediate.dense.bias: 0.298
+bert.encoder.layer.6.output.dense.weight: 0.322
+bert.encoder.layer.6.output.dense.bias: 0.161
+bert.encoder.layer.6.output.LayerNorm.weight: 0.324
+bert.encoder.layer.6.output.LayerNorm.bias: 0.171
+bert.encoder.layer.7.head.0: 1.392
+bert.encoder.layer.7.head.1: 1.415
+bert.encoder.layer.7.head.2: 1.427
+bert.encoder.layer.7.head.3: 1.573
+bert.encoder.layer.7.head.4: 1.459
+bert.encoder.layer.7.head.5: 1.462
+bert.encoder.layer.7.head.6: 1.441
+bert.encoder.layer.7.head.7: 1.303
+bert.encoder.layer.7.head.8: 1.406
+bert.encoder.layer.7.head.9: 1.483
+bert.encoder.layer.7.head.10: 1.478
+bert.encoder.layer.7.head.11: 1.466
+bert.encoder.layer.7.attention.output.dense.weight: 0.346
+bert.encoder.layer.7.attention.output.dense.bias: 0.191
+bert.encoder.layer.7.attention.output.LayerNorm.weight: 0.323
+bert.encoder.layer.7.attention.output.LayerNorm.bias: 0.196
+bert.encoder.layer.7.intermediate.dense.weight: 0.347
+bert.encoder.layer.7.intermediate.dense.bias: 0.318
+bert.encoder.layer.7.output.dense.weight: 0.323
+bert.encoder.layer.7.output.dense.bias: 0.183
+bert.encoder.layer.7.output.LayerNorm.weight: 0.326
+bert.encoder.layer.7.output.LayerNorm.bias: 0.201
+bert.encoder.layer.8.head.0: 1.454
+bert.encoder.layer.8.head.1: 1.573
+bert.encoder.layer.8.head.2: 1.633
+bert.encoder.layer.8.head.3: 1.675
+bert.encoder.layer.8.head.4: 1.425
+bert.encoder.layer.8.head.5: 1.472
+bert.encoder.layer.8.head.6: 1.672
+bert.encoder.layer.8.head.7: 1.431
+bert.encoder.layer.8.head.8: 1.463
+bert.encoder.layer.8.head.9: 1.575
+bert.encoder.layer.8.head.10: 1.817
+bert.encoder.layer.8.head.11: 1.541
+bert.encoder.layer.8.attention.output.dense.weight: 0.345
+bert.encoder.layer.8.attention.output.dense.bias: 0.195
+bert.encoder.layer.8.attention.output.LayerNorm.weight: 0.342
+bert.encoder.layer.8.attention.output.LayerNorm.bias: 0.218
+bert.encoder.layer.8.intermediate.dense.weight: 0.342
+bert.encoder.layer.8.intermediate.dense.bias: 0.305
+bert.encoder.layer.8.output.dense.weight: 0.324
+bert.encoder.layer.8.output.dense.bias: 0.209
+bert.encoder.layer.8.output.LayerNorm.weight: 0.347
+bert.encoder.layer.8.output.LayerNorm.bias: 0.226
+bert.encoder.layer.9.head.0: 1.472
+bert.encoder.layer.9.head.1: 1.175
+bert.encoder.layer.9.head.2: 1.536
+bert.encoder.layer.9.head.3: 1.545
+bert.encoder.layer.9.head.4: 1.204
+bert.encoder.layer.9.head.5: 1.410
+bert.encoder.layer.9.head.6: 2.211
+bert.encoder.layer.9.head.7: 1.448
+bert.encoder.layer.9.head.8: 1.599
+bert.encoder.layer.9.head.9: 1.503
+bert.encoder.layer.9.head.10: 1.422
+bert.encoder.layer.9.head.11: 2.131
+bert.encoder.layer.9.attention.output.dense.weight: 0.317
+bert.encoder.layer.9.attention.output.dense.bias: 0.204
+bert.encoder.layer.9.attention.output.LayerNorm.weight: 0.342
+bert.encoder.layer.9.attention.output.LayerNorm.bias: 0.201
+bert.encoder.layer.9.intermediate.dense.weight: 0.322
+bert.encoder.layer.9.intermediate.dense.bias: 0.290
+bert.encoder.layer.9.output.dense.weight: 0.292
+bert.encoder.layer.9.output.dense.bias: 0.203
+bert.encoder.layer.9.output.LayerNorm.weight: 0.337
+bert.encoder.layer.9.output.LayerNorm.bias: 0.208
+bert.encoder.layer.10.head.0: 1.208
+bert.encoder.layer.10.head.1: 1.315
+bert.encoder.layer.10.head.2: 1.585
+bert.encoder.layer.10.head.3: 1.609
+bert.encoder.layer.10.head.4: 1.328
+bert.encoder.layer.10.head.5: 1.261
+bert.encoder.layer.10.head.6: 1.323
+bert.encoder.layer.10.head.7: 1.500
+bert.encoder.layer.10.head.8: 1.562
+bert.encoder.layer.10.head.9: 1.220
+bert.encoder.layer.10.head.10: 2.080
+bert.encoder.layer.10.head.11: 1.775
+bert.encoder.layer.10.attention.output.dense.weight: 0.315
+bert.encoder.layer.10.attention.output.dense.bias: 0.226
+bert.encoder.layer.10.attention.output.LayerNorm.weight: 0.360
+bert.encoder.layer.10.attention.output.LayerNorm.bias: 0.228
+bert.encoder.layer.10.intermediate.dense.weight: 0.316
+bert.encoder.layer.10.intermediate.dense.bias: 0.291
+bert.encoder.layer.10.output.dense.weight: 0.287
+bert.encoder.layer.10.output.dense.bias: 0.205
+bert.encoder.layer.10.output.LayerNorm.weight: 0.344
+bert.encoder.layer.10.output.LayerNorm.bias: 0.204
+bert.encoder.layer.11.head.0: 1.438
+bert.encoder.layer.11.head.1: 1.842
+bert.encoder.layer.11.head.2: 1.536
+bert.encoder.layer.11.head.3: 1.216
+bert.encoder.layer.11.head.4: 1.497
+bert.encoder.layer.11.head.5: 1.271
+bert.encoder.layer.11.head.6: 1.452
+bert.encoder.layer.11.head.7: 1.395
+bert.encoder.layer.11.head.8: 1.354
+bert.encoder.layer.11.head.9: 1.357
+bert.encoder.layer.11.head.10: 1.352
+bert.encoder.layer.11.head.11: 1.450
+bert.encoder.layer.11.attention.output.dense.weight: 0.304
+bert.encoder.layer.11.attention.output.dense.bias: 0.244
+bert.encoder.layer.11.attention.output.LayerNorm.weight: 0.384
+bert.encoder.layer.11.attention.output.LayerNorm.bias: 0.314
+bert.encoder.layer.11.intermediate.dense.weight: 0.313
+bert.encoder.layer.11.intermediate.dense.bias: 0.331
+bert.encoder.layer.11.output.dense.weight: 0.321
+bert.encoder.layer.11.output.dense.bias: 0.291
+bert.encoder.layer.11.output.LayerNorm.weight: 1.008
+bert.encoder.layer.11.output.LayerNorm.bias: 0.035
+bert.pooler.dense.weight: 15.576
+bert.pooler.dense.bias: 15.335
+qa_outputs.weight: 1.000
+qa_outputs.bias: 1.000
+Epoch 1/3
+Training:   0%|                    | 0/1384 [00:00<?, ?it/s, loss=5.99, lr=5e-5]/root/workdir/squad.py:184: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  train_loss_df = pd.concat([train_loss_df, pd.DataFrame([{
+Epoch 1/3 - Average Loss: 1.4112
+Evaluating: 100%|█████████████████████████████| 337/337 [00:28<00:00, 11.70it/s]
+Validation Loss: 1.0628
+Exact Match (EM): 67.90
+F1 Score: 77.65
+/root/workdir/squad.py:274: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  eval_loss_df = pd.concat([eval_loss_df, pd.DataFrame([{
+Epoch 2/3
+Epoch 2/3 - Average Loss: 0.8051
+Evaluating: 100%|█████████████████████████████| 337/337 [00:29<00:00, 11.58it/s]
+Validation Loss: 0.9937
+Exact Match (EM): 69.35
+F1 Score: 78.89
+Epoch 3/3
+Epoch 3/3 - Average Loss: 0.5765
+Evaluating: 100%|█████████████████████████████| 337/337 [00:28<00:00, 11.66it/s]
+Validation Loss: 1.0919
+Exact Match (EM): 69.32
+F1 Score: 79.19
+Training complete!
+Saving model...
+Model saved to ./fine_tuned_bert_qa
+
+Process finished with exit code 0
