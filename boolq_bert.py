@@ -1,3 +1,36 @@
+"""
+This script implements a complete pipeline for fine-tuning a BERT-based model for binary sequence classification
+(e.g., classifying text pairs into two categories such as True/False or Yes/No). The key functionalities include:
+
+1. Data Loading and Preparation:
+   - Loads training and validation datasets from CSV files.
+   - Encodes question-passage pairs using a BERT tokenizer into input IDs and attention masks.
+   - Prepares PyTorch DataLoader objects for efficient batching and shuffling during training.
+
+2. Model Initialization:
+   - Initializes a pre-trained BERT model for sequence classification with two output labels.
+   - Moves the model to the appropriate computing device (CPU/GPU).
+
+3. Training and Evaluation:
+   - Implements a training loop that performs:
+     - Forward pass through the model to compute predictions and loss.
+     - Backpropagation and gradient clipping.
+     - Parameter updates using the AdamW optimizer and a learning rate scheduler.
+   - Includes an evaluation loop to calculate validation loss and accuracy.
+   - Supports early stopping based on validation loss to prevent overfitting.
+
+4. Model Saving:
+   - Saves the best-performing model during training to a file.
+   - Includes functionality to save the model's full state for later resumption or reuse.
+
+5. Main Pipeline:
+   - Combines data preparation, model initialization, training, and evaluation in an end-to-end workflow.
+
+The script is designed to work with the BoolQ dataset but can be adapted for other binary classification tasks
+with minimal changes to the dataset format or pre-processing steps.
+"""
+
+
 import logging
 import warnings
 from tqdm import tqdm
