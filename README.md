@@ -63,7 +63,7 @@ In conclusion, this project demonstrates that Explainable Adaptive Weight Tuning
 
 Future work can explore further domain-specific applications, refine the gradient weighting techniques, and test the scalability of these methods with more complex models.
 
-# Instructions to execute the code - xai/bert_finetuned_lime.ipynb
+# Instructions to execute the code
 
 ### Setup Instructions
 Follow these steps to set up and execute the notebook:
