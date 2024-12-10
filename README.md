@@ -63,4 +63,18 @@ In conclusion, this project demonstrates that Explainable Adaptive Weight Tuning
 
 Future work can explore further domain-specific applications, refine the gradient weighting techniques, and test the scalability of these methods with more complex models.
 
+# Instructions to execute the code - xai/bert_finetuned_lime.ipynb
 
+### Setup Instructions
+Follow these steps to set up and execute the notebook:
+
+1. Upload the Notebook
+Navigate to Google Colab in your browser.
+Upload the notebook located at xai/bert_finetuned_lime.ipynb from this repository.
+2. Install Required Libraries
+Ensure you have a requirements.txt file in the same directory as the notebook.
+
+### External link for Model Weights:
+Base Model: https://drive.usercontent.google.com/download?id=1wlB3a-sF-ortlnmKx-SC0pROtaDO370B
+
+Fine-Tuned Model: https://drive.google.com/uc?id=12hQrfQOfcXNhKvm-pSDY2K6rZrJcu3Cx
